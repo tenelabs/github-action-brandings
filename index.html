@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Action Brandings</title>
+    <meta
+      name="description"
+      content="Quickly preview and select the branding icon used by GitHub Actions."
+    />
+    <meta
+      name="keywords"
+      content="GitHub Actions, Feather Icons, Action Branding, Workflow UI, CLI Icons, GitHub Badges"
+    />
+    <link
+      rel="canonical"
+      href="https://tenelabs.github.io/github-action-brandings"
+    />
+    <!-- Theme color -->
+    <meta name="theme-color" content="#6521db" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Github Action Brandings" />
+    <meta
+      property="og:description"
+      content="Quickly preview and select the branding icon used by GitHub Actions."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/tenelabs/assets/main/github-action-brandings/preview.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://tenelabs.github.io/github-action-brandings"
+    />
+    <!-- Twitter Card -->
+    <meta
+      name="twitter:card"
+      content="https://raw.githubusercontent.com/tenelabs/assets/main/github-action-brandings/preview.jpg"
+    />
+    <meta name="twitter:title" content="Github Action Brandings" />
+    <meta
+      name="twitter:description"
+      content="Quickly preview and select the branding icon used by GitHub Actions."
+    />
+    <meta
+      name="twitter:image"
+      content="https://raw.githubusercontent.com/tenelabs/assets/main/github-action-brandings/preview.jpg"
+    />
+    <meta name="twitter:site" content="@teneplays" />
+    <!-- favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- style -->
+    <style>
+      :root {
+        --font-primary: "Inter", sans-serif;
+        --font-mono: "Fira Code", monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        font-family: var(--font-primary);
+        background-color: #f9f9f9;
+        padding-bottom: 1rem;
+      }
+
+      header,
+      footer {
+        text-align: center;
+        margin: 1.5rem 0;
+      }
+
+      header em {
+        font-size: 0.75em;
+      }
+
+      main {
+        padding: 0 1rem;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin: 2rem 0 1rem;
+      }
+
+      #color-selector,
+      #icon-search {
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+
+      #showcase {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .gh-action-badge {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+      }
+
+      .gh-action-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease;
+      }
+
+      .gh-action-badge:hover .gh-action-icon {
+        transform: scale(1.08);
+        cursor: pointer;
+      }
+
+      .gh-action-badge-name {
+        margin-top: 0.5rem;
+        font-size: 0.75rem;
+        font-family: var(--font-mono);
+        word-break: break-word;
+        text-align: center;
+      }
+
+      .tooltip {
+        position: absolute;
+        top: -32px;
+        background-color: #000;
+        color: #fff;
+        font-size: 0.7rem;
+        padding: 4px 8px;
+        border-radius: 4px;
+        white-space: nowrap;
+        opacity: 0;
+        transform: translateY(-5px);
+        pointer-events: none;
+        transition: opacity 0.2s, transform 0.2s;
+      }
+
+      .gh-action-badge:hover .tooltip {
+        opacity: 1;
+        transform: translateY(-10px);
+      }
+
+      footer {
+        margin-top: 3rem;
+        padding-top: 1rem;
+        font-size: 0.875rem;
+        color: #555;
+        border-top: 1px solid #ccc;
+      }
+
+      .github-fork {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        width: 200px;
+        text-align: center;
+        transform: rotate(-45deg) translate(60px, 0px);
+        background-color: #333;
+        padding: 8px 20px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        font-family: var(--font-primary);
+        white-space: nowrap;
+        z-index: 1000;
+        transition: background-color 0.3s;
+      }
+
+      @media (max-width: 769px) {
+        body {
+          padding-bottom: 4rem;
+        }
+
+        header h1 {
+          font-size: 1.5rem;
+        }
+
+        .github-fork {
+          width: 180px;
+          transform: rotate(-45deg) translate(50px, 10px);
+          font-size: 11px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>GitHub Action Brandings</h1>
+      <em
+        >Quickly preview and select the branding icon used by GitHub Actions</em
+      >
+    </header>
+
+    <main>
+      <div class="controls">
+        <select id="color-selector">
+          <option value="random">random</option>
+        </select>
+        <input type="text" id="icon-search" placeholder="Search icon..." />
+      </div>
+
+      <div id="showcase">Loading...</div>
+
+      <template id="gh-action-badge-template">
+        <div class="gh-action-badge">
+          <span class="tooltip">Click to copy</span>
+          <div class="gh-action-icon">
+            <i class="gh-action-badge-img" data-feather=""></i>
+          </div>
+          <p class="gh-action-badge-name"></p>
+        </div>
+      </template>
+    </main>
+
+    <footer>Released under MIT License — Built by TenELabs</footer>
+    <a
+      class="github-fork"
+      href="https://github.com/tenelabs/github-action-brandings"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Fork me on GitHub</a
+    >
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+      const ICONS = [
+        "activity",
+        "alert-circle",
+        "anchor",
+        "aperture",
+        "archive",
+        "award",
+        "battery",
+        "bell",
+        "bluetooth",
+        "book",
+        "box",
+        "calendar",
+        "camera",
+        "check",
+        "check-circle",
+        "circle",
+        "cloud",
+        "code",
+        "cpu",
+        "database",
+        "download",
+        "edit",
+        "eye",
+        "file-text",
+        "filter",
+        "flag",
+        "folder",
+        "gift",
+        "git-commit",
+        "globe",
+        "grid",
+        "hash",
+        "heart",
+        "home",
+        "image",
+        "info",
+        "layers",
+        "layout",
+        "link",
+        "list",
+        "lock",
+        "log-in",
+        "mail",
+        "map",
+        "maximize",
+        "menu",
+        "message-circle",
+        "mic",
+        "minimize",
+        "monitor",
+        "moon",
+        "navigation",
+        "octagon",
+        "package",
+        "pause-circle",
+        "phone",
+        "pie-chart",
+        "play-circle",
+        "plus-circle",
+        "printer",
+        "repeat",
+        "rss",
+        "save",
+        "scissors",
+        "search",
+        "send",
+        "server",
+        "settings",
+        "share",
+        "shield",
+        "sidebar",
+        "skip-back",
+        "smartphone",
+        "square",
+        "star",
+        "stop-circle",
+        "sun",
+        "tag",
+        "target",
+        "terminal",
+        "thumbs-up",
+        "trash",
+        "trending-up",
+        "tv",
+        "type",
+        "underline",
+        "unlock",
+        "upload",
+        "user",
+        "users",
+        "video",
+        "volume",
+        "watch",
+        "wifi",
+        "wind",
+        "x-circle",
+        "zap",
+      ];
+
+      const COLORS = {
+        white: "#ffffff",
+        yellow: "#ffd33d",
+        blue: "#0366d6",
+        green: "#28a745",
+        orange: "#f66a0a",
+        red: "#d73a49",
+        purple: "#6f42c1",
+        "gray-dark": "#24292e",
+      };
+
+      let currentColor = "random";
+      let currentSearch = "";
+
+      function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+          color: params.get("color") || "random",
+          search: params.get("search") || "",
+        };
+      }
+
+      function updateURLParams() {
+        const params = new URLSearchParams();
+        if (currentColor !== "random") params.set("color", currentColor);
+        if (currentSearch.trim()) params.set("search", currentSearch.trim());
+        const newUrl = `${window.location.pathname}?${params.toString()}`;
+        history.replaceState({}, "", newUrl);
+      }
+
+      function main() {
+        const colorSelector = document.getElementById("color-selector");
+        const iconSearch = document.getElementById("icon-search");
+        const { color, search } = getQueryParams();
+
+        currentColor = color;
+        currentSearch = search;
+
+        for (const name in COLORS) {
+          const option = document.createElement("option");
+          option.value = name;
+          option.textContent = name;
+          colorSelector.appendChild(option);
+        }
+
+        colorSelector.value = color;
+        iconSearch.value = search;
+
+        colorSelector.addEventListener("change", (e) => {
+          currentColor = e.target.value;
+          updateURLParams();
+          renderIcons();
+        });
+
+        iconSearch.addEventListener("input", (e) => {
+          currentSearch = e.target.value.trim().toLowerCase();
+          updateURLParams();
+          renderIcons();
+        });
+
+        renderIcons();
+      }
+
+      function renderIcons() {
+        const showcase = document.getElementById("showcase");
+        const template = document.getElementById("gh-action-badge-template");
+        showcase.innerHTML = "";
+
+        const colorEntries = Object.entries(COLORS);
+
+        ICONS.filter((name) => name.includes(currentSearch)).forEach(
+          (iconName) => {
+            const clone = template.content.cloneNode(true);
+            const container = clone.querySelector(".gh-action-badge");
+            const iconBox = clone.querySelector(".gh-action-icon");
+            const icon = clone.querySelector(".gh-action-badge-img");
+            const label = clone.querySelector(".gh-action-badge-name");
+            const tooltip = clone.querySelector(".tooltip");
+
+            icon.setAttribute("data-feather", iconName);
+            label.textContent = iconName;
+            container.setAttribute("aria-label", iconName);
+
+            let bgColor;
+            if (currentColor === "random") {
+              const [, hex] =
+                colorEntries[Math.floor(Math.random() * colorEntries.length)];
+              bgColor = hex;
+            } else {
+              bgColor = COLORS[currentColor];
+            }
+
+            const contrast = getContrastYIQ(bgColor);
+            iconBox.style.backgroundColor = bgColor;
+            iconBox.style.color = contrast;
+
+            container.addEventListener("click", () => {
+              navigator.clipboard.writeText(iconName).then(() => {
+                tooltip.textContent = "Copied!";
+                setTimeout(() => {
+                  tooltip.textContent = "Click to copy";
+                }, 1000);
+              });
+            });
+
+            showcase.appendChild(clone);
+          }
+        );
+
+        feather.replace();
+        document.querySelectorAll("svg").forEach((svg) => {
+          svg.setAttribute("stroke", "currentColor");
+          svg.setAttribute("fill", "none");
+        });
+      }
+
+      function getContrastYIQ(hexcolor) {
+        const r = parseInt(hexcolor.substr(1, 2), 16);
+        const g = parseInt(hexcolor.substr(3, 2), 16);
+        const b = parseInt(hexcolor.substr(5, 2), 16);
+        const yiq = (r * 299 + g * 587 + b * 114) / 1000;
+        return yiq >= 128 ? "#000" : "#fff";
+      }
+
+      window.addEventListener("load", main);
+    </script>
+  </body>
+</html>
