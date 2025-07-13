@@ -97,8 +97,15 @@
         margin: 1.5rem 0;
       }
 
+      header h1 {
+        font-size: 3.5em;
+        margin-bottom: 0.25rem;
+      }
+
       header em {
-        font-size: 0.75em;
+        font-size: 0.9em;
+        opacity: 75%;
+        font-family: var(--font-mono);
       }
 
       main {
@@ -125,7 +132,9 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
         gap: 1.5rem;
-        margin-top: 1rem;
+        margin-top: 2.5rem;
+        text-align: center;
+        min-height: 55vh;
       }
 
       .gh-action-badge {
@@ -210,7 +219,15 @@
         }
 
         header h1 {
-          font-size: 1.5rem;
+          font-size: 1.9rem;
+        }
+
+        header em {
+          font-size: 0.55rem;
+        }
+
+        #showcase {
+          min-height: 45dvh;
         }
 
         .github-fork {
@@ -263,66 +280,187 @@
     <script>
       const ICONS = [
         "activity",
+        "airplay",
         "alert-circle",
+        "alert-octagon",
+        "alert-triangle",
+        "align-center",
+        "align-justify",
+        "align-left",
+        "align-right",
         "anchor",
         "aperture",
         "archive",
+        "arrow-down",
+        "arrow-down-circle",
+        "arrow-down-left",
+        "arrow-down-right",
+        "arrow-left",
+        "arrow-left-circle",
+        "arrow-right",
+        "arrow-right-circle",
+        "arrow-up",
+        "arrow-up-circle",
+        "arrow-up-left",
+        "arrow-up-right",
+        "at-sign",
         "award",
+        "bar-chart",
+        "bar-chart-2",
         "battery",
+        "battery-charging",
         "bell",
+        "bell-off",
         "bluetooth",
+        "bold",
         "book",
+        "book-open",
+        "bookmark",
         "box",
+        "briefcase",
         "calendar",
         "camera",
+        "camera-off",
+        "cast",
         "check",
         "check-circle",
+        "check-square",
+        "chevron-down",
+        "chevron-left",
+        "chevron-right",
+        "chevron-up",
+        "chevrons-down",
+        "chevrons-left",
+        "chevrons-right",
+        "chevrons-up",
         "circle",
+        "clipboard",
+        "clock",
         "cloud",
+        "cloud-drizzle",
+        "cloud-lightning",
+        "cloud-off",
+        "cloud-rain",
+        "cloud-snow",
         "code",
+        "command",
+        "compass",
+        "copy",
+        "corner-down-left",
+        "corner-down-right",
+        "corner-left-down",
+        "corner-left-up",
+        "corner-right-down",
+        "corner-right-up",
+        "corner-up-left",
+        "corner-up-right",
         "cpu",
+        "credit-card",
+        "crop",
+        "crosshair",
         "database",
+        "delete",
+        "disc",
+        "dollar-sign",
         "download",
+        "download-cloud",
+        "droplet",
         "edit",
+        "edit-2",
+        "edit-3",
+        "external-link",
         "eye",
+        "eye-off",
+        "fast-forward",
+        "feather",
+        "file",
+        "file-minus",
+        "file-plus",
         "file-text",
+        "film",
         "filter",
         "flag",
         "folder",
+        "folder-minus",
+        "folder-plus",
         "gift",
+        "git-branch",
         "git-commit",
+        "git-merge",
+        "git-pull-request",
         "globe",
         "grid",
+        "hard-drive",
         "hash",
+        "headphones",
         "heart",
+        "help-circle",
         "home",
         "image",
+        "inbox",
         "info",
+        "italic",
         "layers",
         "layout",
+        "life-buoy",
         "link",
+        "link-2",
         "list",
+        "loader",
         "lock",
         "log-in",
+        "log-out",
         "mail",
         "map",
+        "map-pin",
         "maximize",
+        "maximize-2",
         "menu",
         "message-circle",
+        "message-square",
         "mic",
+        "mic-off",
         "minimize",
+        "minimize-2",
         "monitor",
         "moon",
+        "more-horizontal",
+        "more-vertical",
+        "mouse-pointer",
+        "move",
+        "music",
         "navigation",
+        "navigation-2",
         "octagon",
         "package",
+        "paperclip",
+        "pause",
         "pause-circle",
+        "pen-tool",
+        "percent",
         "phone",
+        "phone-call",
+        "phone-forwarded",
+        "phone-incoming",
+        "phone-missed",
+        "phone-off",
+        "phone-outgoing",
         "pie-chart",
+        "play",
         "play-circle",
+        "plus",
         "plus-circle",
+        "plus-square",
+        "pocket",
+        "power",
         "printer",
+        "radio",
+        "refresh-ccw",
+        "refresh-cw",
         "repeat",
+        "rewind",
+        "rotate-ccw",
+        "rotate-cw",
         "rss",
         "save",
         "scissors",
@@ -331,34 +469,75 @@
         "server",
         "settings",
         "share",
+        "share-2",
         "shield",
+        "shield-off",
+        "shopping-bag",
+        "shopping-cart",
+        "shuffle",
         "sidebar",
         "skip-back",
+        "skip-forward",
+        "slack",
+        "slash",
+        "sliders",
         "smartphone",
+        "smile",
+        "speaker",
         "square",
         "star",
         "stop-circle",
         "sun",
+        "sunrise",
+        "sunset",
+        "tablet",
         "tag",
         "target",
         "terminal",
+        "thermometer",
+        "thumbs-down",
         "thumbs-up",
+        "toggle-left",
+        "toggle-right",
+        "tool",
         "trash",
+        "trash-2",
+        "trending-down",
         "trending-up",
+        "triangle",
+        "truck",
         "tv",
         "type",
+        "umbrella",
         "underline",
         "unlock",
         "upload",
+        "upload-cloud",
         "user",
+        "user-check",
+        "user-minus",
+        "user-plus",
+        "user-x",
         "users",
         "video",
+        "video-off",
+        "voicemail",
         "volume",
+        "volume-1",
+        "volume-2",
+        "volume-x",
         "watch",
         "wifi",
+        "wifi-off",
         "wind",
+        "x",
         "x-circle",
+        "x-octagon",
+        "x-square",
         "zap",
+        "zap-off",
+        "zoom-in",
+        "zoom-out",
       ];
 
       const COLORS = {
@@ -407,6 +586,7 @@
         }
 
         colorSelector.value = color;
+        iconSearch.placeholder = `Search ${ICONS.length} icons...`;
         iconSearch.value = search;
 
         colorSelector.addEventListener("change", (e) => {
@@ -430,45 +610,55 @@
         showcase.innerHTML = "";
 
         const colorEntries = Object.entries(COLORS);
-
-        ICONS.filter((name) => name.includes(currentSearch)).forEach(
-          (iconName) => {
-            const clone = template.content.cloneNode(true);
-            const container = clone.querySelector(".gh-action-badge");
-            const iconBox = clone.querySelector(".gh-action-icon");
-            const icon = clone.querySelector(".gh-action-badge-img");
-            const label = clone.querySelector(".gh-action-badge-name");
-            const tooltip = clone.querySelector(".tooltip");
-
-            icon.setAttribute("data-feather", iconName);
-            label.textContent = iconName;
-            container.setAttribute("aria-label", iconName);
-
-            let bgColor;
-            if (currentColor === "random") {
-              const [, hex] =
-                colorEntries[Math.floor(Math.random() * colorEntries.length)];
-              bgColor = hex;
-            } else {
-              bgColor = COLORS[currentColor];
-            }
-
-            const contrast = getContrastYIQ(bgColor);
-            iconBox.style.backgroundColor = bgColor;
-            iconBox.style.color = contrast;
-
-            container.addEventListener("click", () => {
-              navigator.clipboard.writeText(iconName).then(() => {
-                tooltip.textContent = "Copied!";
-                setTimeout(() => {
-                  tooltip.textContent = "Click to copy";
-                }, 1000);
-              });
-            });
-
-            showcase.appendChild(clone);
-          }
+        const filteredIcons = ICONS.filter((name) =>
+          name.includes(currentSearch)
         );
+
+        if (filteredIcons.length === 0) {
+          const msg = document.createElement("p");
+          msg.textContent = `No results found for "${currentSearch}"`;
+          msg.style.fontFamily = "var(--font-mono)";
+          msg.style.color = "#666";
+          showcase.appendChild(msg);
+          return;
+        }
+
+        filteredIcons.forEach((iconName) => {
+          const clone = template.content.cloneNode(true);
+          const container = clone.querySelector(".gh-action-badge");
+          const iconBox = clone.querySelector(".gh-action-icon");
+          const icon = clone.querySelector(".gh-action-badge-img");
+          const label = clone.querySelector(".gh-action-badge-name");
+          const tooltip = clone.querySelector(".tooltip");
+
+          icon.setAttribute("data-feather", iconName);
+          label.textContent = iconName;
+          container.setAttribute("aria-label", iconName);
+
+          let bgColor;
+          if (currentColor === "random") {
+            const [, hex] =
+              colorEntries[Math.floor(Math.random() * colorEntries.length)];
+            bgColor = hex;
+          } else {
+            bgColor = COLORS[currentColor];
+          }
+
+          const contrast = getContrastYIQ(bgColor);
+          iconBox.style.backgroundColor = bgColor;
+          iconBox.style.color = contrast;
+
+          container.addEventListener("click", () => {
+            navigator.clipboard.writeText(iconName).then(() => {
+              tooltip.textContent = "Copied!";
+              setTimeout(() => {
+                tooltip.textContent = "Click to copy";
+              }, 1000);
+            });
+          });
+
+          showcase.appendChild(clone);
+        });
 
         feather.replace();
         document.querySelectorAll("svg").forEach((svg) => {
