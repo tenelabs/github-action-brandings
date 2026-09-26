@@ -6,5 +6,5 @@
 
 ## Preview
 
-![preview](https://raw.githubusercontent.com/tenelabs/assets/main/github-action-brandings/preview.jpg)
+![preview](/assets/preview.jpg)
 
